@@ -5,7 +5,7 @@ const fsExtra = require('fs-extra')
 
 
 const port = 3000
-const storageDir = 'storage/'
+const storageDir = 'tmp/'
 const app = express()
 app.set('view engine', 'ejs')
 const storage = multer.diskStorage({
