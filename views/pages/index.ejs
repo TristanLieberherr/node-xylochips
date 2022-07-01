@@ -1,0 +1,29 @@
+<head>
+  <title>Xylochips2 - Sessions</title>
+</head>
+<script>
+  function eraseFiles() {
+    if (confirm('Voulez-vous vraiment effacer TOUS les fichiers stockés sur le serveur ?')) {
+      let xhr = new XMLHttpRequest()
+      xhr.open('POST', '<%= url %>/delete', true)
+      xhr.send()
+      location.reload()
+    }
+  }
+</script>
+
+<body>
+  <button onclick="eraseFiles()">Effacer les fichiers</button>
+  <h3>
+    Fichiers disponibles :
+  </h3>
+  <ul>
+    <% files.forEach(function(file) { %>
+      <li>
+        <a href="<%= url %>/download/<%= file %>" download>
+          <%= file %>
+        </a>
+      </li>
+      <% }); %>
+  </ul>
+</body>
