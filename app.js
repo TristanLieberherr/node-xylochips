@@ -5,6 +5,7 @@ const fsExtra = require('fs-extra')
 
 
 const port = 443
+const url = "894317.web01.swisscenter.com"
 const storageDir = 'tmp/files'
 const app = express()
 app.set('view engine', 'ejs')
@@ -20,7 +21,7 @@ const upload = multer({ storage: storage })
 app.get('/', (req, res) => {
   res.render(`${__dirname}/public/index`, {
     files: fsExtra.readdirSync(storageDir).sort().reverse(),
-    url: `xylochips.aficor.ch:${port}`
+    url: `${url}:${port}`
   })
 })
 
