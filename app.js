@@ -5,7 +5,7 @@ const fsExtra = require('fs-extra')
 
 
 const port = 3000
-const storageDir = 'tmp/'
+const storageDir = 'tmp'
 const app = express()
 app.set('view engine', 'ejs')
 const storage = multer.diskStorage({
@@ -19,7 +19,7 @@ const upload = multer({ storage: storage })
 
 app.get('/', (req, res) => {
   res.render('public/index', {
-    files: fsExtra.readdirSync('storage').sort().reverse(),
+    files: fsExtra.readdirSync(storageDir).sort().reverse(),
     url: `http://165.22.201.180:${port}`
   })
 })
