@@ -4,8 +4,8 @@ const path = require('path')
 const fsExtra = require('fs-extra')
 
 
-const port = 3000
-const storageDir = 'tmp'
+const port = 443
+const storageDir = 'tmp/files'
 const app = express()
 app.set('view engine', 'ejs')
 const storage = multer.diskStorage({
@@ -20,7 +20,7 @@ const upload = multer({ storage: storage })
 app.get('/', (req, res) => {
   res.render(`${__dirname}/public/index`, {
     files: fsExtra.readdirSync(storageDir).sort().reverse(),
-    url: `www.aficor.ch:${port}`
+    url: `xylochips.aficor.ch:${port}`
   })
 })
 
