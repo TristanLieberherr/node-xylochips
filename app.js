@@ -18,7 +18,7 @@ const upload = multer({ storage: storage })
 
 
 app.get('/', (req, res) => {
-  res.render('public/index', {
+  res.render(`${__dirname}/public/index`, {
     files: fsExtra.readdirSync(storageDir).sort().reverse(),
     url: `http://165.22.201.180:${port}`
   })
